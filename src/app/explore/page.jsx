@@ -5,6 +5,7 @@ import ShowCars from '../components/ShowCars';
 const page =async () => {
   const allcardata = await getallcardata()
   // console.log(data);
+  console.log(process.env.HOST_URL);
   return (
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-3 gap-6">

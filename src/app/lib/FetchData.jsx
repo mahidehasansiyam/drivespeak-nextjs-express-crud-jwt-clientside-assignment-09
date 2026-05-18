@@ -7,4 +7,4 @@ export const getallcardata = async () => {
   const res = await fetch(`${process.env.HOST_URL}/alldata`);
   const data = await res.json();
   return data;
-}
+}   

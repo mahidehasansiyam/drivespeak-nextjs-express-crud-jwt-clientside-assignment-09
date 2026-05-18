@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const ShowCars = ({ car }) => {
-  console.log(car);   
+  // console.log(car);   
   return (
     <div className="my-4">
       {' '}
