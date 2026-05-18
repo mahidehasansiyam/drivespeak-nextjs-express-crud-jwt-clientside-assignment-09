@@ -79,7 +79,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/all-tiles" className={isActive('/all-tiles')}>
+              <Link href="/explore" className={isActive('/explore')}>
                 Explore Cars
               </Link>
             </li>
