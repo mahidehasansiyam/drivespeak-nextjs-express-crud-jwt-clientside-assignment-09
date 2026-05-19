@@ -26,7 +26,7 @@ export default function RegisterForm() {
       name: formData.fullName, // required
       email: formData.email, // required
       password: formData.password, // required
-      image: formData.image, // optional
+      image: formData.profileImgUrl, // optional
       callbackURL: '/', // optional
     });
 
