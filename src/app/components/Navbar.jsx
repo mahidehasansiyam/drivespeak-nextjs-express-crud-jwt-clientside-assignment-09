@@ -1,8 +1,5 @@
 'use client';
 import { useState } from 'react';
-
-
-import Image from 'next/image';
 import { FaAngleDown, FaCar } from 'react-icons/fa';
 import Link from 'next/link';
 import { Button } from '@heroui/react';
@@ -22,13 +19,13 @@ const Navbar = () => {
 
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const session = true;
+  const session = false;
   
 
   return (
-    <div className="bg-[#101626] border-b border-gray-400/20">
+    <div className="bg-[#101626]/70 border-b border-gray-400/20 sticky top-0 z-40 backdrop-blur-sm">
       {' '}
-      <nav className="max-w-6xl mx-auto sticky top-0 z-40 w-full  text-[#9ca3af] backdrop-blur-sm">
+      <nav className="max-w-6xl mx-auto  w-full  text-[#9ca3af] ">
         <header className="flex h-16 items-center justify-between px-6">
           <div className="flex items-center gap-4">
             <Button
@@ -91,7 +88,10 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/my-bookings" className={isActive('/my-bookings')}>
+                  <Link
+                    href="/my-bookings"
+                    className={isActive('/my-bookings')}
+                  >
                     My Bookings
                   </Link>
                 </li>
@@ -125,7 +125,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/all-tiles" className="block py-2">
+                <Link href="/explore" className="block py-2">
                   Explore Cars
                 </Link>
               </li>

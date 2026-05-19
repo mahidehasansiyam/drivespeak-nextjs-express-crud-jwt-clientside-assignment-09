@@ -17,7 +17,8 @@ const page =async () => {
 
           {/* Subtitle Paragraph */}
           <p className="text-sm md:text-base font-semibold text-slate-400 font-light leading-relaxed max-w-3xl">
-            Browse, search, and discover your next premium driving experience. <br />
+            Browse, search, and discover your next premium driving experience.{' '}
+            <br />
             Use search filters to match your preferences.
           </p>
         </div>
@@ -25,7 +26,7 @@ const page =async () => {
       <p className="text-white font-semibold py-1">
         {allcardata.length} cars available
       </p>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center mx-auto pb-12">
         {allcardata.map(car => {
           return (
             <div key={car._id}>
