@@ -11,12 +11,26 @@ import {
   FieldError,
   Button,
 } from '@heroui/react';
+import { authClient } from '@/lib/auth-client';
 
 export default function LoginForm() {
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
    const formData = Object.fromEntries(new FormData(e.currentTarget).entries());
-   console.log(formData);
+    //  console.log(formData);
+    
+    const { data, error } = await authClient.signIn.email({
+    email: formData.email, // required
+    password: formData.password, // required
+    rememberMe: true,
+    // callbackURL: "/",
+    });
+    
+    if (error) {
+      alert(`Error: ${error.message}`);
+    } else {
+      alert('Login successful! Redirecting to your driver panel...');
+    }
 
    
   };

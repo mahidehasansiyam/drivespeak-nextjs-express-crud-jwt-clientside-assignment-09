@@ -11,7 +11,8 @@ import {
   FieldError,
   Button,
 } from '@heroui/react';
-import { authClient } from '../../lib/auth-client';
+import { authClient } from '@/lib/auth-client';
+
 
 export default function RegisterForm() {
   const onSubmit = async e => {
