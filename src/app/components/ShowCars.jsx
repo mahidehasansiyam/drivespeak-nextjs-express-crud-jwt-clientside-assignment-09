@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const ShowCars = ({ car }) => {
-  // console.log(car);   
+  // console.log(car._id);   
   return (
     <div className="my-4">
       {' '}
@@ -129,27 +129,27 @@ const ShowCars = ({ car }) => {
             </div>
 
             {/* Details Action Button */}
-            <Button
-              as={Link}
-              href={`/cars/${car._id}`}
-              radius="lg"
-              className="bg-[#10b981] hover:bg-[#0f9f6e] text-white font-bold px-5 py-2.5 flex items-center gap-2 shadow-[0_4px_14px_0_rgba(16,185,129,0.3)] transition-all duration-300 hover:shadow-[0_6px_20px_0_rgba(16,185,129,0.4)]"
-            >
-              Details
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                viewBox="0 0 24 24"
+            <Link href={`/explore/${car._id}`}>
+              <Button
+                radius="lg"
+                className="bg-[#10b981] hover:bg-[#0f9f6e] text-white font-bold px-5 py-2.5 flex items-center gap-2 shadow-[0_4px_14px_0_rgba(16,185,129,0.3)] transition-all duration-300 hover:shadow-[0_6px_20px_0_rgba(16,185,129,0.4)]"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </Button>
+                Details
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </Button>
+            </Link>
           </div>
         </div>
       </Card>
