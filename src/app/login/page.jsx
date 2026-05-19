@@ -18,10 +18,11 @@ export default function LoginForm() {
 		e.preventDefault()
 		const formData = Object.fromEntries(new FormData(e.currentTarget).entries())
 		const { data, error } = await authClient.signIn.email({
-			email: formData.email,
-			password: formData.password,
-			rememberMe: true,
-		})
+      email: formData.email,
+      password: formData.password,
+      rememberMe: true,
+      callbackURL: '/',
+    });
 
 		if (error) {
 			alert(`Error: ${error.message}`)
