@@ -57,12 +57,11 @@ const page = () => {
                   <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                     Car Category
                   </label>
-                  <select className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-3.5 px-4 text-sm text-slate-300 focus:outline-none focus:border-[#10B981]/50 transition-colors appearance-none cursor-pointer bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_1rem_center] bg-no-repeat">
-                    <option value="SUV">SUV</option>
-                    <option value="Luxury">Luxury</option>
-                    <option value="Sports">Sports</option>
-                    <option value="Electric">Electric</option>
-                  </select>
+                  <input
+                    type="text"
+                    placeholder="(e.g., Sports, SUV, Electric)"
+                    className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-3.5 pl-4 pr-4 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-[#10B981]/50 transition-colors"
+                  />
                 </div>
               </div>
 

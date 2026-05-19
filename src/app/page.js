@@ -36,7 +36,7 @@ export default async function Home() {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center mx-auto">
           {fewcarData.map(car => {
             return (
               <div key={car._id}>
@@ -46,7 +46,7 @@ export default async function Home() {
           })}
         </div>
         {/* button */}
-        <div className='flex justify-center items-center py-10'>
+        <div className="flex justify-center items-center py-10">
           <Link
             href="/explore"
             className="inline-flex items-center justify-center gap-2 bg-[#10B981] hover:bg-[#0fA774] text-[#070B13] font-bold text-sm md:text-base px-7 py-4 rounded-xl transition-all shadow-[0_4px_25px_rgba(16,185,129,0.3)] hover:shadow-[0_4px_30px_rgba(16,185,129,0.55)] active:scale-[0.98]"

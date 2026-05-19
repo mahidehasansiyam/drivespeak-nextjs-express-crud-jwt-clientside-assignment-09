@@ -7,7 +7,7 @@ import Image from 'next/image';
 const ShowCars = ({ car }) => {
   // console.log(car._id);   
   return (
-    <div className="my-4">
+    <div className="flex justify-center items-center">
       {' '}
       <Card
         isHoverable
