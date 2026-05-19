@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import { User, Mail, Image as ImageIcon, Lock, UserPlus } from 'lucide-react';
 import {
@@ -12,16 +11,32 @@ import {
   FieldError,
   Button,
 } from '@heroui/react';
+import { authClient } from '../../lib/auth-client';
 
 export default function RegisterForm() {
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
-    const formData = Object.fromEntries(new FormData(e.currentTarget).entries());
-    console.log(formData);
+    const formData = Object.fromEntries(
+      new FormData(e.currentTarget).entries(),
+    );
+    // console.log(formData);
 
-   
+    const { data, error } = await authClient.signUp.email({
+      name: formData.fullName, // required
+      email: formData.email, // required
+      password: formData.password, // required
+      image: formData.image, // optional
+      callbackURL: '/', // optional
+    });
 
-   
+    if (error) {
+      alert(`Error: ${error.message}`);
+    } else {
+      alert(
+        'Registration successful! Please check your email to verify your account.',
+      );
+    }
+    console.log(data, error);
   };
 
   return (
@@ -48,7 +63,6 @@ export default function RegisterForm() {
               <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 z-10" />
               <Input
                 placeholder="John Doe"
-                
                 className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-1 pl-11 pr-4 text-sm text-slate-200 placeholder-slate-600 focus-within:border-[#10B981]/50 transition-colors"
               />
             </div>
@@ -74,7 +88,6 @@ export default function RegisterForm() {
               <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 z-10" />
               <Input
                 placeholder="name@example.com"
-                
                 className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-1 pl-11 pr-4 text-sm text-slate-200 placeholder-slate-600 focus-within:border-[#10B981]/50 transition-colors"
               />
             </div>
@@ -90,7 +103,6 @@ export default function RegisterForm() {
               <ImageIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 z-10" />
               <Input
                 placeholder="https://images.unsplash.com/photo-..."
-               
                 className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-1 pl-11 pr-4 text-sm text-slate-200 placeholder-slate-600 focus-within:border-[#10B981]/50 transition-colors"
               />
             </div>
@@ -122,7 +134,6 @@ export default function RegisterForm() {
               <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 z-10" />
               <Input
                 placeholder="••••••••"
-               
                 className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-1 pl-11 pr-4 text-sm text-slate-200 placeholder-slate-600 focus-within:border-[#10B981]/50 transition-colors"
               />
             </div>

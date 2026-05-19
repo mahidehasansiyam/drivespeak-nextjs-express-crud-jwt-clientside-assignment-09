@@ -3,7 +3,7 @@ import FeatureSection from './components/FeatureSection';
 import Hero from './components/Hero';
 import ShowCars from './components/ShowCars';
 import StateSectoin from './components/StateSectoin';
-import { getfewcardata } from './lib/FetchData';
+import { getfewcardata } from '../lib/FetchData';
 import { ArrowRight } from 'lucide-react';
 
 export default async function Home() {

@@ -1,11 +1,11 @@
 import React from 'react';
-import { getallcardata } from '../lib/FetchData';
+import { getallcardata } from '../../lib/FetchData';
 import ShowCars from '../components/ShowCars';
 
-const page =async () => {
-  const allcardata = await getallcardata()
+const page = async () => {
+  const allcardata = await getallcardata();
   // console.log(data);
-  
+
   return (
     <div className="max-w-6xl mx-auto">
       <div className="w-full  px-4 py-4 text-left select-none">
