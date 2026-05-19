@@ -1,10 +1,4 @@
-import { betterAuth } from 'better-auth';
-import { mongodbAdapter } from 'better-auth/adapters/mongodb';
-
-
-export const auth = betterAuth({
-  database: mongodbAdapter(client),
-  emailAndPassword: {
-    enabled: true,
-  },
-});
+import { createAuthClient } from 'better-auth/react'
+export const authClient = createAuthClient({
+	baseURL: process.env.BETTER_AUTH_URL,
+})
