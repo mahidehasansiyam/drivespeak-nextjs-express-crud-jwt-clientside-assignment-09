@@ -2,25 +2,25 @@
 import { useState } from 'react';
 import { FaAngleDown, FaCar } from 'react-icons/fa';
 import Link from 'next/link';
-import { Button } from '@heroui/react';
+import { Avatar, Button } from '@heroui/react';
 import { TfiKey } from 'react-icons/tfi';
 import { usePathname } from 'next/navigation';
+import { authClient } from '@/lib/auth-client';
 
 
 
 const Navbar = () => {
-  
-  const pathname = usePathname();
+  const {data: session,} = authClient.useSession();
+  console.log('session:', session);
+  // const session = true;
 
+  const pathname = usePathname();
   const isActive = path =>
     pathname === path
       ? 'text-[#10b981] border-b-2 border-[#10b981] font-semibold'
       : ' hover:text-[#10b981] transition-colors';
 
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const session = false;
-  
 
   return (
     <div className="bg-[#101626]/70 border-b border-gray-400/20 sticky top-0 z-40 backdrop-blur-sm">
@@ -100,10 +100,20 @@ const Navbar = () => {
           </ul>
 
           {session ? (
-            <div className="flex gap-1 md:gap-4 items-center bg-[#1b2438] py-2 px-3 rounded-xl border border-gray-700">
-              <Link href="/my-profile"> Image</Link>
-              <div className="text-white font-bold">Name</div>
-              <FaAngleDown />
+            <div className=" bg-[#1b2438] py-2 px-3 rounded-xl border border-gray-700">
+              <Link href="/my-profile" className="flex gap-1 md:gap-4 items-center">
+                {' '}
+                <Avatar>
+                  <Avatar.Image alt="John Doe" src={session?.user.image} />
+                  <Avatar.Fallback>
+                    {session?.user.name.charAt(0)}
+                  </Avatar.Fallback>
+                </Avatar>
+                <div className="text-white font-bold hidden sm:block">
+                  {session?.user.name}
+                </div>
+                <FaAngleDown />
+              </Link>
             </div>
           ) : (
             <div className="flex gap-4">
