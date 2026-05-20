@@ -12,6 +12,8 @@ import {
   Button,
 } from '@heroui/react';
 import { authClient } from '@/lib/auth-client';
+import { redirect } from 'next/navigation';
+
 
 
 export default function RegisterForm() {
@@ -27,7 +29,7 @@ export default function RegisterForm() {
       email: formData.email, // required
       password: formData.password, // required
       image: formData.profileImgUrl, // optional
-      callbackURL: '/', // optional
+      
     });
 
     if (error) {
@@ -35,10 +37,17 @@ export default function RegisterForm() {
     } else {
       alert(
         'Registration successful! Please check your email to verify your account.',
+        redirect("/")
       );
     }
-    console.log(data, error);
+    // console.log(data, error);
   };
+
+   const handleGoogleLogin = async () => {
+      const data = await authClient.signIn.social({
+        provider: 'google',
+      });
+    };
 
   return (
     <section className="w-full min-h-screen bg-[#070B13] text-slate-100 py-16 px-4 flex items-center justify-center">
@@ -164,7 +173,10 @@ export default function RegisterForm() {
         </div>
 
         {/* Social Authentication Button */}
-        <button className="w-full flex items-center justify-center gap-2.5 bg-[#141B2B] hover:bg-[#1C253B] border border-slate-800 text-slate-200 text-sm font-bold py-3.5 rounded-xl transition-colors cursor-pointer">
+        <button
+          onClick={handleGoogleLogin}
+          className="w-full flex items-center justify-center gap-2.5 bg-[#141B2B] hover:bg-[#1C253B] border border-slate-800 text-slate-200 text-sm font-bold py-3.5 rounded-xl transition-colors cursor-pointer"
+        >
           <svg
             className="w-4 h-4 shrink-0"
             viewBox="0 0 24 24"
