@@ -1,4 +1,5 @@
 "use client"
+import { authClient } from '@/lib/auth-client';
 import {
   PlusCircle,
   Car,
@@ -9,9 +10,40 @@ import {
   Info,
 } from 'lucide-react';
 
+
 const page = () => {
+
+    const {data: session,} = authClient.useSession();
+      
+
+  const onSubmit = async e => {
+    e.preventDefault();
+    const formData = Object.fromEntries(
+      new FormData(e.currentTarget).entries(),
+    );
+     
+    const newCar = {
+      ...formData,
+      userEmail: session?.user.email,
+      available: true,
+      bookingCount: 0,
+    };
+    //  console.log("newCAr",newCar);
+     
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/newcar`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newCar),
+    });
+    console.log("res", res);
+    window.location.reload();
+
+  };
+  
   return (
-    <div>
+    
       <section className="w-full min-h-screen bg-[#070B13] text-slate-100 py-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         <div className="max-w-3xl w-full space-y-8">
           {/* Section Header */}
@@ -36,7 +68,7 @@ const page = () => {
             </div>
 
             {/* Form Content */}
-            <form className="space-y-6" onSubmit={e => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={onSubmit}>
               {/* Grid Row 1: Model Name & Category */}
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
                 <div className="md:col-span-8 flex flex-col gap-2">
@@ -45,7 +77,8 @@ const page = () => {
                   </label>
                   <div className="relative">
                     <Car className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-                    <input
+                  <input
+                    name='name'
                       type="text"
                       placeholder="E.g., Tesla Model S Plaid"
                       className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-3.5 pl-11 pr-4 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-[#10B981]/50 transition-colors"
@@ -57,7 +90,8 @@ const page = () => {
                   <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                     Car Category
                   </label>
-                  <input
+                <input
+                  name='type'
                     type="text"
                     placeholder="(e.g., Sports, SUV, Electric)"
                     className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-3.5 pl-4 pr-4 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-[#10B981]/50 transition-colors"
@@ -74,6 +108,7 @@ const page = () => {
                   <div className="relative">
                     <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                     <input
+                      name='price'
                       type="number"
                       placeholder="Rate per day"
                       className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-3.5 pl-11 pr-4 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-[#10B981]/50 transition-colors"
@@ -88,6 +123,7 @@ const page = () => {
                   <div className="relative">
                     <Users className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                     <input
+                      name='seats'
                       type="number"
                       placeholder="Number of seats"
                       className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-3.5 pl-11 pr-4 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-[#10B981]/50 transition-colors"
@@ -104,6 +140,7 @@ const page = () => {
                 <div className="relative">
                   <ImageIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                   <input
+                    name='image'
                     type="url"
                     placeholder="https://images.unsplash.com/photo-..."
                     className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-3.5 pl-11 pr-4 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-[#10B981]/50 transition-colors"
@@ -119,6 +156,7 @@ const page = () => {
                 <div className="relative">
                   <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                   <input
+                    name='location'
                     type="text"
                     placeholder="E.g. Beverly Hills, CA"
                     className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-3.5 pl-11 pr-4 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-[#10B981]/50 transition-colors"
@@ -132,6 +170,7 @@ const page = () => {
                   Vehicle Description
                 </label>
                 <textarea
+                  name='description'
                   rows="4"
                   placeholder="Give a detailed description of features, performance specs, handling, interior details..."
                   className="w-full bg-[#111726]/80 border border-slate-800/80 rounded-xl py-3.5 px-4 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-[#10B981]/50 transition-colors resize-none leading-relaxed"
@@ -158,7 +197,7 @@ const page = () => {
           </div>
         </div>
       </section>
-    </div>
+    
   );
 };
 

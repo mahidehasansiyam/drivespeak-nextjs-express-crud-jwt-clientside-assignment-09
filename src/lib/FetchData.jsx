@@ -1,15 +1,15 @@
 export const getfewcardata = async () => {
-	const res = await fetch(`${process.env.SERVER_URL}/fewdata`, {
-		cache: 'no-store',
-	})
+	const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/fewcars`, {
+    cache: 'no-store',
+  });
 	const data = await res.json()
 	return data
 }
 
 export const getallcardata = async () => {
-	const res = await fetch(`${process.env.SERVER_URL}/alldata`, {
-		cache: 'no-store',
-	})
+	const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/allcars`, {
+    cache: 'no-store',
+  });
 	const data = await res.json()
 	return data
 }

@@ -5,12 +5,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const ShowCars = ({ car }) => {
-  // console.log(car._id);   
+  // console.log(car);   
   return (
     <div className="flex justify-center items-center">
       {' '}
       <Card
-        isHoverable
+        // isHoverable
         className="w-full max-w-[400px] bg-[#0b1325] border border-gray-800/60 text-white rounded-2xl overflow-hidden shadow-xl group transition-all duration-300 hover:border-gray-700 p-0 shadow-[0_0_14px_5px_rgba(0,0,0,0.4)] hover:shadow-[0_0_20px_10px_rgba(0,0,0,0.6)]"
       >
         {/* Card Header / Image Section */}

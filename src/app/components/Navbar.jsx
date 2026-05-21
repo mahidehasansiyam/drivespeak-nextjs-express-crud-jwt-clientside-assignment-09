@@ -6,12 +6,14 @@ import { Avatar, Button } from '@heroui/react';
 import { TfiKey } from 'react-icons/tfi';
 import { usePathname } from 'next/navigation';
 import { authClient } from '@/lib/auth-client';
+import ProfileDropdown from '../ProfileDropdown/page';
+
 
 
 
 const Navbar = () => {
   const {data: session,} = authClient.useSession();
-  console.log('session:', session);
+  // console.log('session:', session);
   // const session = true;
 
   const pathname = usePathname();
@@ -95,25 +97,31 @@ const Navbar = () => {
                     My Bookings
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/my-added-cars"
+                    className={isActive('/my-added-cars')}
+                  >
+                    My Added Cars
+                  </Link>
+                </li>
               </div>
             )}
           </ul>
 
           {session ? (
-            <div className=" bg-[#1b2438] py-2 px-3 rounded-xl border border-gray-700">
-              <Link href="/my-profile" className="flex gap-1 md:gap-4 items-center">
-                {' '}
-                <Avatar>
-                  <Avatar.Image alt="John Doe" src={session?.user.image} />
-                  <Avatar.Fallback>
-                    {session?.user.name.charAt(0)}
-                  </Avatar.Fallback>
-                </Avatar>
-                <div className="text-white font-bold hidden sm:block">
-                  {session?.user.name}
-                </div>
-                <FaAngleDown />
-              </Link>
+            <div className=" bg-[#1b2438] py-2 px-3 rounded-xl border border-gray-700 flex gap-1 md:gap-4 items-center">
+              <Avatar>
+                <Avatar.Image alt="John Doe" src={session?.user.image} />
+                <Avatar.Fallback>
+                  {session?.user.name.charAt(0)}
+                </Avatar.Fallback>
+              </Avatar>
+              <div className="text-white font-bold hidden sm:block">
+                {session?.user.name}
+              </div>
+              <FaAngleDown />
+              <ProfileDropdown></ProfileDropdown>
             </div>
           ) : (
             <div className="flex gap-4">
@@ -149,6 +157,11 @@ const Navbar = () => {
                   <li>
                     <Link href="/my-bookings" className="block py-2">
                       My Bookings
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/my-added-cars" className="block py-2">
+                      My Added Cars
                     </Link>
                   </li>
                 </div>
