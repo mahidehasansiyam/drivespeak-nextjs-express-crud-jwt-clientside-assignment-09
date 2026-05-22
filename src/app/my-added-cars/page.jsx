@@ -30,20 +30,20 @@ const MyAddedCars = async () => {
       </h2>
       {cars.map(car => (
         <div
-          key={car._id}
+          key={car?._id}
           className=" flex justify-between items-center p-4 rounded-lg bg-[#1b2438] mb-4 max-w-5xl mx-auto border border-gray-700"
         >
           <div className="flex justify-center items-center gap-3">
             <Image
               className="rounded-2xl"
-              src={car.image}
-              alt={car.name}
+              src={car?.image}
+              alt={car?.name}
               width={100}
               height={100}
             /> 
             <div>   
-              <h3>{car.name}</h3>
-              <p>{car.type}</p>
+              <h3>{car?.name}</h3>
+              <p>{car?.type}</p>
             </div>
           </div>{' '}
           <div className="flex justify-center items-center gap-3">
