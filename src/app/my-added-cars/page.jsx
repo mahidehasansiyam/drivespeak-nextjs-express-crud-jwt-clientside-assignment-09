@@ -40,7 +40,7 @@ const MyAddedCars = async () => {
               alt={car.name}
               width={100}
               height={100}
-            />
+            /> 
             <div>   
               <h3>{car.name}</h3>
               <p>{car.type}</p>
