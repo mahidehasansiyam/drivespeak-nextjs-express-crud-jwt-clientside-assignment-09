@@ -25,20 +25,27 @@ const MyAddedCars = async () => {
   
   return (
     <div className="text-white">
-      <h2>You's Added Cars : {cars.length}</h2>
+      <h2 className="text-xl font-bold mb-4 max-w-5xl mx-auto">
+        You's Added Cars : {cars.length}
+      </h2>
       {cars.map(car => (
         <div
           key={car._id}
-          className=" flex justify-between items-center p-4 rounded-lg bg-[#1b2438] mb-4 max-w-5xl mx-auto"
+          className=" flex justify-between items-center p-4 rounded-lg bg-[#1b2438] mb-4 max-w-5xl mx-auto border border-gray-700"
         >
           <div className="flex justify-center items-center gap-3">
-            <Image className='rounded-2xl' src={car.image} alt={car.name} width={100} height={100} />
+            <Image
+              className="rounded-2xl"
+              src={car.image}
+              alt={car.name}
+              width={100}
+              height={100}
+            />
             <div>
               <h3>{car.name}</h3>
-              <p>{car.description}</p>
+              <p>{car.type}</p>
             </div>
-          </div>
-          {" "}
+          </div>{' '}
           <div className="flex justify-center items-center gap-3">
             <UpdateModal car={car} />
             <DeleteCar car={car} />

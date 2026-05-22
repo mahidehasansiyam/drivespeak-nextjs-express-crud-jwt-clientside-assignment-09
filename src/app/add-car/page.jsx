@@ -21,6 +21,7 @@ const page = () => {
     const formData = Object.fromEntries(
       new FormData(e.currentTarget).entries(),
     );
+    console.log("formData",formData);
      
     const newCar = {
       ...formData,
