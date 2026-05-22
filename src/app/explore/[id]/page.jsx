@@ -24,8 +24,8 @@ const page = async ({ params }) => {
             {/* Main Vehicle Image Frame */}
             <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden border border-slate-800 shadow-inner group">
               <Image
-                src={car.image}
-                alt={car.name}
+                src={car?.image}
+                alt={car?.name}
                 fill
                 priority
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -45,7 +45,7 @@ const page = async ({ params }) => {
                 Premium Specifications
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {car.features.map((feature, idx) => (
+                {car?.features?.map((feature, idx) => (
                   <div
                     key={idx}
                     className="flex items-center gap-3 bg-[#131A2A] border border-slate-800/60 px-4 py-3.5 rounded-xl text-sm font-medium text-slate-300 hover:border-emerald-500/30 transition-colors"
@@ -63,14 +63,14 @@ const page = async ({ params }) => {
             {/* Header Metadata */}
             <div className="space-y-2">
               <span className="text-xs uppercase font-extrabold tracking-widest text-[#10B981]">
-                {car.type}
+                {car?.type}
               </span>
               <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
-                {car.name}
+                {car?.name}
               </h1>
               <div className="flex items-center gap-1.5 text-slate-400 text-sm">
                 <MapPin className="w-4 h-4 text-[#10B981]" />
-                {car.location}
+                {car?.location}
               </div>
             </div>
 
@@ -82,7 +82,7 @@ const page = async ({ params }) => {
                 </div>
                 <div>
                   <p className="text-lg font-bold text-white leading-none">
-                    {car.seats}
+                    {car?.seats}
                   </p>
                   <p className="text-xs text-slate-400 mt-1">Seats</p>
                 </div>
@@ -94,7 +94,7 @@ const page = async ({ params }) => {
                 </div>
                 <div>
                   <p className="text-base font-bold text-white leading-none truncate max-w-[60px] sm:max-w-none">
-                    {car.type}
+                    {car?.type}
                   </p>
                   <p className="text-xs text-slate-400 mt-1">Category</p>
                 </div>
@@ -106,7 +106,7 @@ const page = async ({ params }) => {
                 </div>
                 <div>
                   <p className="text-lg font-bold text-white leading-none">
-                    {car.bookingCount}
+                    {car?.bookingCount}
                   </p>
                   <p className="text-xs text-slate-400 mt-1">Rentals</p>
                 </div>
@@ -119,7 +119,7 @@ const page = async ({ params }) => {
                 Overview
               </h3>
               <p className="text-slate-300 text-sm md:text-base leading-relaxed font-light">
-                {car.description}
+                {car?.description}
               </p>
             </div>
 
@@ -145,7 +145,7 @@ const page = async ({ params }) => {
                 </p>
                 <div className="flex items-baseline gap-1 mt-0.5">
                   <span className="text-2xl sm:text-3xl font-black text-[#10B981]">
-                    ${car.price}
+                    ${car?.price}
                   </span>
                   <span className="text-xs sm:text-sm text-slate-400 font-medium">
                     / day

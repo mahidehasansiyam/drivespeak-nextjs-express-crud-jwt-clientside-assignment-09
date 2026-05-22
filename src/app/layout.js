@@ -36,5 +36,5 @@ export default function RootLayout({ children }) {
 
 // card color = bg-[#1b2438]
 // #101626  = navbar
-
+// bg-[#090d16] = body
 //  #10b981 = green color
