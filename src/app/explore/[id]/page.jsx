@@ -8,6 +8,8 @@ import {
   CheckCircle2,
   ShieldAlert,
 } from 'lucide-react';
+import { BookingCard } from '@/app/components/BookingCard';
+
 
 const page = async ({ params }) => {
   const allcardata = await getallcardata();
@@ -153,9 +155,9 @@ const page = async ({ params }) => {
                 </div>
               </div>
 
-              <button className="bg-[#10B981] hover:bg-[#0fA774] text-[#0A0E1A] font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-[0_4px_20px_rgba(16,185,129,0.25)] hover:shadow-[0_4px_25px_rgba(16,185,129,0.4)] transition-all active:scale-[0.98]">
-                Book Rental Now
-              </button>
+              {/* My booking section */}
+              <BookingCard car={ car} />
+              
             </div>
           </div>
         </div>

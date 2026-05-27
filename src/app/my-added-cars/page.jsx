@@ -1,7 +1,5 @@
 
 import { auth } from '@/lib/auth';
-import { authClient } from '@/lib/auth-client';
-import { Button } from '@heroui/react';
 import { headers } from 'next/headers';
 import Image from 'next/image';
 import { UpdateModal } from '../components/UpdateCar';

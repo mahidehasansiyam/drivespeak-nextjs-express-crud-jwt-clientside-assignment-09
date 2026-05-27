@@ -91,8 +91,8 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    href="/my-bookings"
-                    className={isActive('/my-bookings')}
+                    href="/my-booking"
+                    className={isActive('/my-booking')}
                   >
                     My Bookings
                   </Link>
@@ -155,7 +155,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/my-bookings" className="block py-2">
+                    <Link href="/my-booking" className="block py-2">
                       My Bookings
                     </Link>
                   </li>
