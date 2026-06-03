@@ -4,6 +4,7 @@ import React from 'react';
 import { Wallet, Calendar, ShieldCheck, Trash2 } from 'lucide-react';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
+import { CancelBooking } from '../components/CancelBookings';
 
 const MyBookings = async () => {
  
@@ -160,10 +161,7 @@ const MyBookings = async () => {
 
                     {/* Action Buttons */}
                     <td className="py-5 px-6 text-right">
-                      <button className='text-red-600'>
-                        <Trash2 className="w-3.5 h-3.5" />
-                        Cancel Ride
-                      </button>
+                    <CancelBooking booking={booking}></CancelBooking>
                     </td>
                   </tr>
                 ))}
