@@ -21,7 +21,7 @@ const page = () => {
     const formData = Object.fromEntries(
       new FormData(e.currentTarget).entries(),
     );
-    console.log("formData",formData);
+    // console.log("formData",formData);
      
     const newCar = {
       ...formData,
@@ -38,7 +38,7 @@ const page = () => {
       },
       body: JSON.stringify(newCar),
     });
-    console.log("res", res);
+    // console.log("res", res);
     window.location.reload();
 
   };

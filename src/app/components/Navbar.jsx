@@ -118,9 +118,9 @@ const Navbar = () => {
                 </Avatar.Fallback>
               </Avatar>
               <div className="text-white font-bold hidden sm:block">
-                {session?.user.name}
+                {session?.user.name.split(' ')[0]}
               </div>
-              <FaAngleDown />
+              {/* <FaAngleDown /> */}
               <ProfileDropdown></ProfileDropdown>
             </div>
           ) : (

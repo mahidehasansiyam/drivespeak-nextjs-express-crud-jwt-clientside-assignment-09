@@ -32,7 +32,7 @@ export function UpdateModal({ car }) {
        );
 
        const data = await res.json();
-          console.log(data);
+          // console.log(data);
        if (data.modifiedCount > 0) {
          alert('Car updated successfully');
          window.location.reload();

@@ -14,7 +14,7 @@ const MyBookings = async () => {
   });
 
   const userEmail = session?.user?.email;
-  console.log(userEmail);
+  // console.log(userEmail);
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/allbookings/${userEmail}`,
@@ -23,7 +23,7 @@ const MyBookings = async () => {
     },
   );
   const bookings = await res.json();
-  console.log(bookings);
+  // console.log(bookings);
 
    const totalInvested = bookings.reduce(
      (acc, curr) => acc + curr.price,

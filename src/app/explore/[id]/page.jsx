@@ -15,7 +15,7 @@ const page = async ({ params }) => {
   const allcardata = await getallcardata();
   const { id } = await params;
   const car = allcardata.find(car => car._id === id);
-  console.log(car);
+  // console.log(car);
   // console.log(id);
   return (
     <div>

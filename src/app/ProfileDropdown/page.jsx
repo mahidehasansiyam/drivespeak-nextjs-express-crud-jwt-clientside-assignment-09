@@ -31,7 +31,7 @@ export default function ProfileDropdown() {
         "
       >
         <Dropdown.Menu aria-label="Profile Actions">
-          <Dropdown.Item id="home" textValue="Home" startContent={<FaHome />}>
+          <Dropdown.Item id="home" textValue="Home" className='text-white' startContent={<FaHome />}>
             <Link href="/" className="w-full block">
               Home
             </Link>
@@ -60,7 +60,7 @@ export default function ProfileDropdown() {
             color="danger"
             startContent={<FaSignOutAlt />}
             onPress={() => {
-              console.log('Logout clicked');
+              // console.log('Logout clicked');
 
               // logout logic here
               // signOut();
