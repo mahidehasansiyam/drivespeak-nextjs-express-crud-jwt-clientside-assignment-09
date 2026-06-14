@@ -106,9 +106,15 @@ export default function SearchAndFilter() {
             </div>
           </div>
 
+       {loading ? (
+          <p className="text-white font-semibold py-1 flex items-center justify-center ">
+            Loading cars...
+          </p>
+        ) : (
           <p className="text-white font-semibold py-1">
             {cars.length} cars available
           </p>
+        )}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center mx-auto pb-12">
             {cars.map(car => {
               return (
