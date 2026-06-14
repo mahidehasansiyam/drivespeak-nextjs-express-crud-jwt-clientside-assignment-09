@@ -1,6 +1,7 @@
 import React from 'react';
 import { getallcardata } from '../../lib/FetchData';
 import ShowCars from '../components/ShowCars';
+import SearchAndFilter from '../components/Search&filter';
 
 const page = async () => {
   const allcardata = await getallcardata();
@@ -23,10 +24,12 @@ const page = async () => {
           </p>
         </div>
       </div>
-      <p className="text-white font-semibold py-1">
-        {allcardata.length} cars available
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center mx-auto pb-12">
+      {/* search and filter */}
+      <SearchAndFilter />
+      
+
+      
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center mx-auto pb-12">
         {allcardata.map(car => {
           return (
             <div key={car._id}>
@@ -34,7 +37,7 @@ const page = async () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };

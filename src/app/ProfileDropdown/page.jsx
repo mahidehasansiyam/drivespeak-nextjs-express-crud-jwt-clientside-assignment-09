@@ -76,7 +76,7 @@ export default function ProfileDropdown() {
 
           <Dropdown.Item
             id="logout"
-            className="text-red-400 hover:bg-red-600/20 "
+            className="text-red-400 "
             textValue="Logout"
             variant="danger"
             color="danger"
