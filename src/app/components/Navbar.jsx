@@ -97,14 +97,6 @@ const Navbar = () => {
                     My Bookings
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/my-added-cars"
-                    className={isActive('/my-added-cars')}
-                  >
-                    My Added Cars
-                  </Link>
-                </li>
               </div>
             )}
           </ul>
@@ -159,11 +151,7 @@ const Navbar = () => {
                       My Bookings
                     </Link>
                   </li>
-                  <li>
-                    <Link href="/my-added-cars" className="block py-2">
-                      My Added Cars
-                    </Link>
-                  </li>
+                  
                 </div>
               )}
             </ul>

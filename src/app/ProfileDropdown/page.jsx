@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { FaAngleDown, FaUser, FaSignOutAlt, FaHome } from 'react-icons/fa';
 import { Dropdown, Button } from '@heroui/react';
+import { authClient } from '@/lib/auth-client';
 
 export default function ProfileDropdown() {
   return (
@@ -31,7 +32,12 @@ export default function ProfileDropdown() {
         "
       >
         <Dropdown.Menu aria-label="Profile Actions">
-          <Dropdown.Item id="home" textValue="Home" className='text-white' startContent={<FaHome />}>
+          <Dropdown.Item
+            id="home"
+            textValue="Home"
+            className="text-white hover:text-black"
+            startContent={<FaHome />}
+          >
             <Link href="/" className="w-full block">
               Home
             </Link>
@@ -39,6 +45,7 @@ export default function ProfileDropdown() {
 
           <Dropdown.Item
             id="profile"
+            className="text-white hover:text-black"
             textValue="Profile"
             startContent={<FaUser />}
           >
@@ -47,23 +54,35 @@ export default function ProfileDropdown() {
             </Link>
           </Dropdown.Item>
 
-          <Dropdown.Item id="dashboard" textValue="Dashboard">
+          <Dropdown.Item
+            id="dashboard"
+            textValue="Dashboard"
+            className="text-white hover:text-black"
+          >
             <Link href="/dashboard" className="w-full block">
               Dashboard
             </Link>
           </Dropdown.Item>
 
           <Dropdown.Item
+            id="my-added-cars"
+            textValue="My Added Cars"
+            className="text-white hover:text-black"
+          >
+            <Link href="/my-added-cars" className="w-full block">
+              My Added Cars
+            </Link>
+          </Dropdown.Item>
+
+          <Dropdown.Item
             id="logout"
+            className="text-red-400 hover:bg-red-600/20 "
             textValue="Logout"
             variant="danger"
             color="danger"
             startContent={<FaSignOutAlt />}
-            onPress={() => {
-              // console.log('Logout clicked');
-
-              // logout logic here
-              // signOut();
+            onPress={async () => {
+              await authClient.signOut();
             }}
           >
             Logout
