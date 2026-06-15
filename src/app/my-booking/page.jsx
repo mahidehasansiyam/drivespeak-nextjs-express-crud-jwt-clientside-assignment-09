@@ -7,8 +7,6 @@ import { headers } from 'next/headers';
 import { CancelBooking } from '../components/CancelBookings';
 
 const MyBookings = async () => {
- 
-
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -16,22 +14,25 @@ const MyBookings = async () => {
   const userEmail = session?.user?.email;
   // console.log(userEmail);
 
+  // get token from better auth in server component *****************
+  const { token } = await auth.api.getToken({
+    headers: await headers(),
+  });
+
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/allbookings/${userEmail}`,
     {
       cache: 'no-store',
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
     },
   );
   const bookings = await res.json();
   // console.log(bookings);
 
-   const totalInvested = bookings.reduce(
-     (acc, curr) => acc + curr.price,
-     0,
-   );
-   const activeCount = bookings.length;
-
-  
+  const totalInvested = bookings.reduce((acc, curr) => acc + curr.price, 0);
+  const activeCount = bookings.length;
 
   return (
     <div className="min-h-screen bg-[#070b13] text-white p-8 font-sans">
@@ -155,13 +156,13 @@ const MyBookings = async () => {
                     <td className="py-5 px-4 text-center">
                       <span className="inline-flex items-center gap-1.5 text-xs font-bold bg-[#0d231f] text-[#10B981] border border-[#10B981]/20 px-3 py-1.5 rounded-full">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-                        {booking.available?"Confirmed":"Delay"}
+                        {booking.available ? 'Confirmed' : 'Delay'}
                       </span>
                     </td>
 
                     {/* Action Buttons */}
                     <td className="py-5 px-6 text-right">
-                    <CancelBooking booking={booking}></CancelBooking>
+                      <CancelBooking booking={booking}></CancelBooking>
                     </td>
                   </tr>
                 ))}
@@ -172,6 +173,6 @@ const MyBookings = async () => {
       </div>
     </div>
   );
-};
+};;
 
 export default MyBookings;

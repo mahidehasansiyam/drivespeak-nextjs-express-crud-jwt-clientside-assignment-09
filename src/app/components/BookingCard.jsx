@@ -29,7 +29,7 @@ export function BookingCard({ car }) {
   const onSubmit = async e => {
     e.preventDefault();
     const bookingData = {
-      userEmail:session?.user?.email || "",
+      userEmail: session?.user?.email || '',
       carName: car.name,
       duration,
       driverService,
@@ -49,19 +49,26 @@ export function BookingCard({ car }) {
     };
     // console.log('Booking Confirmed:', bookingData);
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/allbookings`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    // get token from better auth in client component *****************
+    const { data: tokenData } = await authClient.token();
+
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/allbookings`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${tokenData?.token}`,
+        },
+        body: JSON.stringify(bookingData),
       },
-      body: JSON.stringify(bookingData),
-    });
+    );
     // console.log('res', res);
     if (res.ok) {
-      alert("You have successfully added one car")
+      alert('You have successfully added one car');
     }
-     redirect("/explore")
-  };
+    redirect('/explore');
+  };;
   return (
     <Modal>
       <Button className="bg-[#10B981] hover:bg-[#0fA774] text-[#0A0E1A] font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-[0_4px_20px_rgba(16,185,129,0.25)] hover:shadow-[0_4px_25px_rgba(16,185,129,0.4)] transition-all active:scale-[0.98]">
