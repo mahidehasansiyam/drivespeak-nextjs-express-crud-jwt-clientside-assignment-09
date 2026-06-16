@@ -46,7 +46,7 @@ const page = () => {
     } else {
       toast.error('Failed to list the car');
     }
-    // window.location.reload();
+    
 
   };
   

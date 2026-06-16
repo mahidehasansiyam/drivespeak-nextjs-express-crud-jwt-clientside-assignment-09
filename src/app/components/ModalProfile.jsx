@@ -1,10 +1,12 @@
 'use client';
 import { authClient } from '@/lib/auth-client';
 import { Button, Input, Label, Modal, Surface, TextField } from '@heroui/react';
+import { useRouter } from 'next/navigation';
 import { BiEdit } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
 
 const ModalProfile = () => {
+    const router = useRouter();
   const handleModalData = async e => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -15,7 +17,7 @@ const ModalProfile = () => {
       name: name,
     });
 
-    // console.log(name, image);   
+    router.refresh(); // Refresh current page data
   };
   return (
     <Modal>
@@ -51,10 +53,10 @@ const ModalProfile = () => {
                     <Button slot="close" variant="secondary">
                       Cancel
                     </Button>
-                    <Button type="submit" slot="close">
+                    <Button  type="submit" slot="close">
                       Save
                     </Button>
-                  </Modal.Footer>
+                  </Modal.Footer> 
                 </form>
               </Surface>
             </Modal.Body>
