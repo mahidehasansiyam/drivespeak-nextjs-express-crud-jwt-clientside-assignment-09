@@ -31,7 +31,7 @@ const MyBookings = async () => {
   const bookings = await res.json();
   // console.log(bookings);
 
-  const totalInvested = bookings.reduce((acc, curr) => acc + curr.price, 0);
+  const totalInvested = bookings.reduce((acc, curr) => acc + curr.totalPrice, 0);
   const activeCount = bookings.length;
 
   return (
@@ -118,12 +118,12 @@ const MyBookings = async () => {
                     <td className="py-5 px-6 flex items-center gap-4">
                       <img
                         src={booking.image}
-                        alt={booking.name}
+                        alt={booking.carName}
                         className="w-20 h-12 object-cover rounded-xl border border-slate-800 shadow-md bg-slate-900"
                       />
                       <div>
                         <h3 className="text-sm font-bold text-white tracking-wide">
-                          {booking.name}
+                          {booking.carName}
                         </h3>
                         <p className="text-xs font-semibold text-slate-500 mt-0.5">
                           ${booking.price} / day
@@ -148,7 +148,7 @@ const MyBookings = async () => {
                     {/* Total Rent */}
                     <td className="py-5 px-4 text-center">
                       <span className="text-sm font-extrabold text-[#10B981]">
-                        ${booking.totalRent}
+                        ${booking.totalPrice}
                       </span>
                     </td>
 

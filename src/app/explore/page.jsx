@@ -5,7 +5,7 @@ import SearchAndFilter from '../components/Search&filter';
 
 const page = async () => {
   const allcardata = await getallcardata();
-  // console.log(data);
+  // console.log(allcardata);
 
   return (
     <div className="max-w-6xl mx-auto">

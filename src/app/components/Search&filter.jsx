@@ -52,7 +52,7 @@ export default function SearchAndFilter() {
 
     return () => clearTimeout(delayDebounceFn);
   }, [search, selectedType, selectedSeats]);
-  console.log(cars);
+  // console.log(cars);
   return (
     <div className="  text-white p-8">
       <div className="max-w-7xl mx-auto space-y-8">

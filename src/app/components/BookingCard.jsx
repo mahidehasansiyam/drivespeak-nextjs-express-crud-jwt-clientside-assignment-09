@@ -37,7 +37,7 @@ export function BookingCard({ car }) {
       specialNotes,
       totalPrice: estTotalPrice,
       available: car.available,
-      bookingCount: car.bookingCount,
+      bookingCount: (car.bookingCount || 0) + 1,
       description: car.description,
       features: car.features,
       id: car.id,
@@ -49,6 +49,14 @@ export function BookingCard({ car }) {
       type: car.type,
     };
     // console.log('Booking Confirmed:', bookingData);
+
+    // Updatebooking count on the server
+    await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/allcars/${car.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
     // get token from better auth in client component *****************
     const { data: tokenData } = await authClient.token();
