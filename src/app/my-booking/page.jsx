@@ -239,5 +239,5 @@ const MyBookings = async () => {
     </div>
   );
 };
-
+   
 export default MyBookings;
