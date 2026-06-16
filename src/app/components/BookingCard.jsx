@@ -13,9 +13,13 @@ import { redirect } from 'next/navigation';
 import { toast } from 'react-toastify';
 
 export function BookingCard({ car }) {
-  const { data: session, } = authClient.useSession();
+  const { data: session } = authClient.useSession();
   const userEmail = session?.user?.email;
   // console.log(userEmail);
+
+  // Set the default booking date to today's date formatted as YYYY-MM-DD
+  const todayString = new Date().toISOString().split('T')[0];
+  
 
   const [duration, setDuration] = useState(1);
   const [driverService, setDriverService] = useState('none'); // 'none' | 'professional'
@@ -33,6 +37,7 @@ export function BookingCard({ car }) {
       userEmail: session?.user?.email || '',
       carName: car.name,
       duration,
+      bookingDate: todayString,
       driverService,
       specialNotes,
       totalPrice: estTotalPrice,
@@ -77,7 +82,7 @@ export function BookingCard({ car }) {
       toast.success('You have successfully added one car');
     }
     redirect('/explore');
-  };;;
+  };
   return (
     <Modal>
       <Button className="bg-[#10B981] hover:bg-[#0fA774] text-[#0A0E1A] font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-[0_4px_20px_rgba(16,185,129,0.25)] hover:shadow-[0_4px_25px_rgba(16,185,129,0.4)] transition-all active:scale-[0.98]">

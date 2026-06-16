@@ -54,7 +54,7 @@ export default function SearchAndFilter() {
   }, [search, selectedType, selectedSeats]);
   // console.log(cars);
   return (
-    <div className="  text-white p-8">
+    <div className="  text-white ">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* --- Search & Filters Control Board --- */}
         <div className="bg-[#0e1322] border border-slate-800/60 p-6 rounded-2xl shadow-xl space-y-6">

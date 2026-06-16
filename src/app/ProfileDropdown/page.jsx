@@ -54,15 +54,25 @@ export default function ProfileDropdown() {
             </Link>
           </Dropdown.Item>
 
-          {/* <Dropdown.Item
-            id="dashboard"
-            textValue="Dashboard"
+          <Dropdown.Item
+            id="my-bookings"
+            textValue="My Bookings"
             className="text-white hover:text-black"
           >
-            <Link href="/dashboard" className="w-full block">
-              Dashboard
+            <Link href="/my-booking" className="w-full block">
+              My Bookings
             </Link>
-          </Dropdown.Item> */}
+          </Dropdown.Item>
+
+          <Dropdown.Item
+            id="add-car"
+            textValue="Add Car"
+            className="text-white hover:text-black"
+          >
+            <Link href="/add-car" className="w-full block">
+              Add Car
+            </Link>
+          </Dropdown.Item>
 
           <Dropdown.Item
             id="my-added-cars"
