@@ -10,6 +10,7 @@ import { Button, Modal} from '@heroui/react';
 import { useState } from 'react';
 import { authClient } from '@/lib/auth-client';
 import { redirect } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 export function BookingCard({ car }) {
   const { data: session, } = authClient.useSession();
@@ -65,10 +66,10 @@ export function BookingCard({ car }) {
     );
     // console.log('res', res);
     if (res.ok) {
-      alert('You have successfully added one car');
+      toast.success('You have successfully added one car');
     }
     redirect('/explore');
-  };;
+  };;;
   return (
     <Modal>
       <Button className="bg-[#10B981] hover:bg-[#0fA774] text-[#0A0E1A] font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-[0_4px_20px_rgba(16,185,129,0.25)] hover:shadow-[0_4px_25px_rgba(16,185,129,0.4)] transition-all active:scale-[0.98]">

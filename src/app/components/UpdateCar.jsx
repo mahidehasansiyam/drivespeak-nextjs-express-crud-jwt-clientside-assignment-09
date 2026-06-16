@@ -11,6 +11,7 @@ import {
 
 import { Button, Input, Label, Modal, Surface, TextField } from '@heroui/react';
 import { Edit } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 export function UpdateModal({ car }) {
   const onSubmit = async (e) => {
@@ -34,12 +35,12 @@ export function UpdateModal({ car }) {
        const data = await res.json();
           // console.log(data);
        if (data.modifiedCount > 0) {
-         alert('Car updated successfully');
+         toast.success('Car updated successfully');
          window.location.reload();
        }
      } catch (error) {
        console.log(error);
-       alert('Something went wrong');
+       toast.error('Something went wrong');
      }
   }
   return (

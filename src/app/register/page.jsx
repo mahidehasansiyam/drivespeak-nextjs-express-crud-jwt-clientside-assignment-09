@@ -13,6 +13,7 @@ import {
 } from '@heroui/react';
 import { authClient } from '@/lib/auth-client';
 import { redirect } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 
 
@@ -33,10 +34,10 @@ export default function RegisterForm() {
     });
 
     if (error) {
-      alert(`Error: ${error.message}`);
+      toast.error(`Error: ${error.message}`);
     } else {
-      alert(
-        'Registration successful! Please check your email to verify your account.',
+      toast.success(
+        'Registration successful!',
         redirect("/")
       );
     }

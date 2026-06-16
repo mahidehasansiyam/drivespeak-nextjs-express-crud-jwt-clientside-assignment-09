@@ -12,10 +12,19 @@ const MyAddedCars = async () => {
 
   const userEmail = session?.user?.email;
   // console.log(userEmail);
+
+   // get token from better auth in server component *****************
+    const { token } = await auth.api.getToken({
+      headers: await headers(),
+    });
+  
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_URL}/allcars/${userEmail}`,
     {
       cache: 'no-store',
+      headers: {
+              authorization: `Bearer ${token}`,
+            },
     },
   );
   const cars = await res.json();

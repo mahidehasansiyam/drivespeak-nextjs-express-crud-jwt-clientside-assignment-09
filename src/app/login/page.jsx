@@ -12,6 +12,7 @@ import {
   Button,
 } from '@heroui/react';
 import { authClient } from '@/lib/auth-client';
+import { toast } from 'react-toastify';
 
 export default function LoginForm() {
   const onSubmit = async e => {
@@ -27,10 +28,10 @@ export default function LoginForm() {
     });
 
     if (error) {
-      alert(`Error: ${error.message}`);
+      toast.error(`Error: ${error.message}`);
     } else {
       // console.log({ data });
-      alert('Login successful! Redirecting to your driver panel...');
+      toast.success('Login successful! Redirecting to your driver panel...');
     }
   };
 

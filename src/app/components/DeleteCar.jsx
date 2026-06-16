@@ -1,6 +1,7 @@
 'use client';
 
 import { AlertDialog, Button } from '@heroui/react';
+import { toast } from 'react-toastify';
 
 export function DeleteCar({ car }) {
   const handleDelete =async () => {
@@ -17,7 +18,7 @@ export function DeleteCar({ car }) {
       //  console.log(data);
 
        if (data.deletedCount > 0) {
-         alert('Car deleted successfully');
+         toast.success('Car deleted successfully');
          window.location.reload();
        }
      } catch (error) {

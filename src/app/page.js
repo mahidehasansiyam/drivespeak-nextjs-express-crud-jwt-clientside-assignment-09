@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react'
 
 export default async function Home() {
 	const fewcarData = await getfewcardata()
-	// console.log(carData);
+	console.log(fewcarData);
 
 	return (
 		<div className='max-w-6xl mx-auto'>

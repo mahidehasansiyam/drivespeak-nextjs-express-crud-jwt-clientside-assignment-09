@@ -54,7 +54,7 @@ export default function ProfileDropdown() {
             </Link>
           </Dropdown.Item>
 
-          <Dropdown.Item
+          {/* <Dropdown.Item
             id="dashboard"
             textValue="Dashboard"
             className="text-white hover:text-black"
@@ -62,7 +62,7 @@ export default function ProfileDropdown() {
             <Link href="/dashboard" className="w-full block">
               Dashboard
             </Link>
-          </Dropdown.Item>
+          </Dropdown.Item> */}
 
           <Dropdown.Item
             id="my-added-cars"

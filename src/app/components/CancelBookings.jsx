@@ -1,6 +1,7 @@
 'use client';
 
 import { AlertDialog, Button } from '@heroui/react';
+import { toast } from 'react-toastify';
 
 export function CancelBooking({ booking }) {
   const handleDelete =async () => {
@@ -17,7 +18,7 @@ export function CancelBooking({ booking }) {
       //  console.log(data);
 
        if (data.deletedCount > 0) {
-         alert('Booking Car deleted successfully');
+         toast.success('Booking Car deleted successfully');
          window.location.reload(); 
        }
      } catch (error) {
