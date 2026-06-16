@@ -51,7 +51,7 @@ export function BookingCard({ car }) {
     // console.log('Booking Confirmed:', bookingData);
 
     // Updatebooking count on the server
-    await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/allcars/${car.id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/allcars/${car._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
