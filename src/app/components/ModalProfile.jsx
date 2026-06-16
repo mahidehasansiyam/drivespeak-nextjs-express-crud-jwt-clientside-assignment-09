@@ -1,10 +1,8 @@
 'use client';
 import { authClient } from '@/lib/auth-client';
-import { Envelope } from '@gravity-ui/icons';
 import { Button, Input, Label, Modal, Surface, TextField } from '@heroui/react';
 import { BiEdit } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
-import { GrUpdate } from 'react-icons/gr';
 
 const ModalProfile = () => {
   const handleModalData = async e => {
@@ -17,7 +15,7 @@ const ModalProfile = () => {
       name: name,
     });
 
-    // console.log(name, image);
+    // console.log(name, image);   
   };
   return (
     <Modal>
