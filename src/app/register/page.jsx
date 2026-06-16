@@ -36,10 +36,8 @@ export default function RegisterForm() {
     if (error) {
       toast.error(`Error: ${error.message}`);
     } else {
-      toast.success(
-        'Registration successful!',
-        redirect("/")
-      );
+      toast.success('Registration successful!',);
+      redirect("/")
     }
     // console.log(data, error);
   };

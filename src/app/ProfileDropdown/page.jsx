@@ -49,7 +49,7 @@ export default function ProfileDropdown() {
             textValue="Profile"
             startContent={<FaUser />}
           >
-            <Link href="/profile" className="w-full block">
+            <Link href="/my-profile" className="w-full block">
               Profile
             </Link>
           </Dropdown.Item>
@@ -81,7 +81,7 @@ export default function ProfileDropdown() {
             variant="danger"
             color="danger"
             startContent={<FaSignOutAlt />}
-            onPress={async () => {
+            onClick={async () => {
               await authClient.signOut();
             }}
           >

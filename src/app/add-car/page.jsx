@@ -9,6 +9,7 @@ import {
   MapPin,
   Info,
 } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 
 const page = () => {
@@ -39,7 +40,13 @@ const page = () => {
       body: JSON.stringify(newCar),
     });
     // console.log("res", res);
-    window.location.reload();
+    if (res.ok) {
+       window.location.reload();
+      toast.success('Car listed successfully');
+    } else {
+      toast.error('Failed to list the car');
+    }
+    // window.location.reload();
 
   };
   
